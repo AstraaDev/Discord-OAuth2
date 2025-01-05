@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('../dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const url = require('url');
@@ -7,7 +7,7 @@ const sqlite3 = require('sqlite3').verbose();
 const port = process.env.PORT || 1500;
 const app = express();
 
-const db = new sqlite3.Database('db.sqlite');
+const db = new sqlite3.Database('../db.sqlite');
 
 console.log('ClientID:', process.env.ClientID);
 console.log('ClientSecret:', process.env.ClientSecret);
