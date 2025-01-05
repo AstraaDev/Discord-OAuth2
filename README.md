@@ -4,12 +4,12 @@
 ![Repo size](https://img.shields.io/github/repo-size/AstraaDev/Discord-OAuth2.svg?label=Repo%20size&style=flat-square)
 
 ## Description
-This project allows you to manage user access to your Discord bot via OAuth2 authorization. Users must authorize the bot to join servers on their behalf.
+This project allows you to manage user access to your Discord bot via OAuth2 authorization. Users must authorize the bot to join servers on their behalf. It provides useful commands for server management, a simple setup process, and a robust database to handle user information.
 
 ## Features
-- Manage user access to your server.
+- Manage user access to your server via OAuth2.
 - View and control users in the database.
-- Various commands to facilitate interaction with the bot.
+- Refresh and manage bot commands dynamically.
 
 ## Commands
 
@@ -42,13 +42,15 @@ This project allows you to manage user access to your Discord bot via OAuth2 aut
    ```bash
    npm install
    ```
-4. Create a `.env` file and add the following variables:
+4. Edit the `.env` file provided in the repository:
    ```env
-   BotToken=YOUR_DISCORD_BOT_TOKEN
-   ClientID=YOUR_CLIENT_ID
-   ClientSecret=YOUR_CLIENT_SECRET
+   ClientID=YOUR_CLIENT_ID_HERE
+   ClientSecret=YOUR_CLIENT_SECRET_HERE
    PORT=1500
+   BotToken=YOUR_BOT_TOKEN_HERE
    ```
+5. Modify `YOUR_USER_ID_HERE` in `src/bot.js` with your Discord account ID. Only these IDs will have access to the bot commands.
+6. Replace `YOUR_CLIENT_ID_HERE` and `YOUR_REDIRECT_URI_HERE` in `src/bot.js` to match your application's OAuth2 settings.
 
 ### Running the Bot
 Start the bot by running:
@@ -60,6 +62,36 @@ Start the Express server:
 ```bash
 node index.js
 ```
+
+## Creating a Discord Bot
+
+To create your Discord bot and retrieve the necessary credentials:
+
+1. **Go to the Discord Developer Portal**:
+   Visit the [Discord Developer Portal](https://discord.com/developers/applications) and log in with your Discord account.
+
+2. **Create a New Application**:
+   - Click on "New Application."
+   - Provide a name for your bot and click "Create."
+
+3. **Generate the Client ID and Client Secret**:
+   - Go to the "OAuth2" tab.
+   - Under "General Information," copy your **Client ID** and **Client Secret**. These will be used in your `.env` file.
+
+4. **Add a Bot User**:
+   - Navigate to the "Bot" tab.
+   - Click on "Add Bot" and confirm.
+   - Copy the **Bot Token** by clicking on "Reset Token." Add this token to your `.env` file as `BotToken`.
+
+5. **Set Up OAuth2 Redirects**:
+   - In the "OAuth2" tab, under "Redirects," add your redirect URI (e.g., `http://localhost:1500/api/auth/discord/redirect`).
+
+6. **Configure Permissions**:
+   - In the "OAuth2" tab, use the URL Generator to set the bot's permissions and scopes (e.g., `bot`, `applications.commands`).
+   - Generate the invitation link and use it to invite your bot to a server.
+
+## Example OAuth2 Authorization Link Content
+<img src="https://cdn.discordapp.com/attachments/1079127307656122501/1325528616729051229/image_1.png?ex=677c1e39&is=677accb9&hm=5e556d1d6d4df4a54e9bcd9d06a45df145254a7bbfdbab7796d5677aba24effe&" alt="OAuth2 Example" width="400">
 
 ## Database
 SQLite is used to store user information:
