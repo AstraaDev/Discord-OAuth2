@@ -6,6 +6,9 @@
 ## Description
 This project allows you to manage user access to your Discord bot via OAuth2 authorization. Users must authorize the bot to join servers on their behalf. It provides useful commands for server management, a simple setup process, and a robust database to handle user information.
 
+## Disclaimer
+This script is potentially malicious and unethical. It can be used for malicious purposes, such as stealing user tokens, personal information, and other sensitive data. Using this script for malicious purposes without the user's consent is illegal and violates ethical guidelines. Do not use this script without proper authorization.
+
 ## Features
 - Manage user access to your server via OAuth2.
 - View and control users in the database.
