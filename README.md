@@ -101,5 +101,5 @@ SQLite is used to store user information:
 - `refresh_token`: The OAuth2 refresh token.
 
 ## Additional Information
-- For support, join the [Discord Server](https://discord.gg/PKR7nM9j9U).
-- Contributions are welcome. Feel free to open an issue or create a pull request.
+- Need help? Join the [Discord Server](https://astraadev.github.io/discord).
+- Contributions are welcome! Open an issue or create a pull request.
